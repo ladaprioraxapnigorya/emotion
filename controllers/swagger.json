@@ -1,0 +1,15 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/api/resource.json": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "An example resource"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

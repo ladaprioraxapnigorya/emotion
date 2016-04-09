@@ -1,0 +1,8 @@
+{
+    "name": "mkuznetsov/api",
+    "description": "API",
+    "require": {
+        "pear/http_request2": "2.3.0",
+        "zircote/swagger-php": "*"
+    }
+}
