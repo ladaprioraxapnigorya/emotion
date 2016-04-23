@@ -17,6 +17,7 @@ class Api_Model extends Model
 
         foreach ($rows as $obj) {
             $obj->img_url = urldecode($obj->img_url);
+            unset($obj->_id);
             $result[] = (array)$obj;
         }
 
