@@ -1,9 +1,9 @@
 <?php
 
-class Db extends PDO
+class Db
 {
-    public function __construct()
+    public static function createDbConnect()
     {
-        parent::__construct(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+        return new \MongoDB\Driver\Manager(DB_TYPE . '://' . DB_HOST . ':' . DB_PORT);
     }
 }

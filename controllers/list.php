@@ -8,7 +8,7 @@ class CList extends Controller
 
     public function index()
     {
-        $this->model = new Api_Model();
+        $this->model = new Api_Model(DB_EMOTION_COLLECTION);
 
         $result = $this->model->getAll();
 

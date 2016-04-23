@@ -5,19 +5,19 @@ class Api_Model extends Model
     public function save($data)
     {
         $strJson = json_encode($data);
-
-        return $this->db->query("INSERT INTO emotion (json_data) VALUES ('$strJson')");
+        $bulk = $this->fetchBulk();
+        $bulk->insert(json_decode($strJson));
+        return $this->connect->executeBulkWrite($this->getNamespace(), $bulk);
     }
 
     public function getAll()
     {
         $result = [];
-        $emotions = $this->db->query("SELECT * FROM emotion")->fetchAll();
+        $rows = $this->connect->executeQuery($this->getNamespace(), $this->fetchQuery());
 
-        foreach ($emotions as $emotion) {
-            $arrEmotion = json_decode($emotion['json_data']);
-            $arrEmotion->img_url = urldecode($arrEmotion->img_url);
-            $result[] = $arrEmotion;
+        foreach ($rows as $obj) {
+            $obj->img_url = urldecode($obj->img_url);
+            $result[] = (array)$obj;
         }
 
         return $result;

@@ -16,10 +16,10 @@ class CSave extends Controller
         if (isset($_FILES['img'])){
             $image = new ImageUpload($_FILES['img']);
             $image->save();
-            $emotion = new Emotion($image->getStream());
+            $emotion = new Emotion($image->getUrl());
             $result = $emotion->requestEmotion();
 
-            if ($result) {
+            if (!$result['error']) {
                 $result['img_name'] = $image->getName();
                 $result['img_url'] = urlencode($image->getUrl());
                 $result['id'] = $this->generationId();
@@ -30,7 +30,7 @@ class CSave extends Controller
                     $this->response->error(200, "Message don't save. Wrong format data.", 'error/index');
                 }
             } else {
-                $this->response->error(200, "Message don't save. Wrong format data.", 'error/index');
+                $this->response->error(200, $result, 'error/index');
             }
         } else {
             $this->response->error(400, '400 Bad Request', 'error/index');
@@ -39,7 +39,7 @@ class CSave extends Controller
 
     public function save($data)
     {
-        $model = new Api_Model();
+        $model = new Api_Model(DB_EMOTION_COLLECTION);
         return $model->save($data);
     }
 

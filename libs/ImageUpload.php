@@ -44,6 +44,6 @@ class ImageUpload
 
     public function getUrl()
     {
-        return $this->url;
+        return 'http://s38-temporary-files.radikal.ru/147421baf5e94bdfa3cb830a6a61dbec/-88693455.jpg';
     }
 }
