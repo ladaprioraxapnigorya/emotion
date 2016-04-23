@@ -23,7 +23,6 @@ class Emotion
         $this->emotion->setMethod(HTTP_Request2::METHOD_POST);
         $this->emotion->setBody(json_encode($this->data));
 
-        var_dump($this->emotion->getBody());
         try
         {
             $response = $this->emotion->send();

@@ -30,7 +30,7 @@ class ImageUpload
         return fclose($this->handle);
     }
 
-    public function save($path = __DIR__ . '\..\image\\')
+    public function save($path = __DIR__ . '/../image/')
     {
         $this->url = $path . $this->name;
 
