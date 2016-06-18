@@ -3,7 +3,7 @@
 /*======= ������� � ���� ������ ========*/
 
 define("DB_TYPE", 'mongodb');
-define("DB_HOST", 'localhost');
+define("DB_HOST", 'ece.tarantino.mobi');
 define("DB_PORT", '27017');
 define("DB_NAME", 'emotion');
 define("DB_EMOTION_COLLECTION", 'emotions');

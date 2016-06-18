@@ -37,17 +37,17 @@ class CSave extends Controller
         }
     }
 
-    public function save($data)
-    {
-        $model = new Api_Model(DB_EMOTION_COLLECTION);
-        return $model->save($data);
-    }
-
     public function generationId()
     {
         $rand = mt_rand(10,99);
         $time = time();
 
         return $time . $rand;
+    }
+
+    public function save($data)
+    {
+        $model = new Api_Model(DB_EMOTION_COLLECTION);
+        return $model->save($data);
     }
 }

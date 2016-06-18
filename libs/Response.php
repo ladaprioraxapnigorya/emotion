@@ -10,6 +10,11 @@ class Response
         $this->setHeaders('Content-Type', 'application/json');
     }
 
+    private function setHeaders($header, $value)
+    {
+        header($header . ':' . $value);
+    }
+
     public function save($status, $message, $view)
     {
         $this->view->response = json_encode([
@@ -18,6 +23,16 @@ class Response
         ]);
         $this->setHttpResponseCode($status);
         $this->responseRender($view);
+    }
+
+    private function setHttpResponseCode($status)
+    {
+        http_response_code($status);
+    }
+
+    private function responseRender($view)
+    {
+        $this->view->render($view);
     }
 
     public function get($status, $message, $view, array $items)
@@ -53,20 +68,5 @@ class Response
         ]);
         $this->setHttpResponseCode($status);
         $this->responseRender($view);
-    }
-
-    private function responseRender($view)
-    {
-        $this->view->render($view);
-    }
-
-    private function setHeaders($header, $value)
-    {
-        header($header . ':' . $value);
-    }
-
-    private function setHttpResponseCode($status)
-    {
-        http_response_code($status);
     }
 }

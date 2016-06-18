@@ -1,7 +1,8 @@
 <?php
-
+ini_set('display_errors', true);
 /*========= library ============*/
 
+require 'vendor/autoload.php';
 require 'libs/Bootstrap.php';
 require 'libs/Response.php';
 require 'libs/Controller.php';

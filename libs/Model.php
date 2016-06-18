@@ -2,9 +2,9 @@
 
 class Model
 {
+    protected $connect;
     private $db;
     private $collection;
-    protected $connect;
 
     function __construct($collection)
     {
