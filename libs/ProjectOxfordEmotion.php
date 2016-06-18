@@ -2,7 +2,7 @@
 
 require_once 'HTTP/Request2.php';
 
-class Emotion
+class ProjectOxfordEmotion
 {
     protected $data;
     protected $emotion;
@@ -13,7 +13,7 @@ class Emotion
 
     public function __construct($data)
     {
-        $this->emotion = new HTTP_Request2(EMOTION_URL);
+        $this->emotion = new HTTP_Request2(PROJECTOXFORD_EMOTION);
         $this->data = json_decode('{"url": " ' . $data . ' "}');
     }
 

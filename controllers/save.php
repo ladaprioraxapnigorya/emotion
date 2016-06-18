@@ -16,7 +16,7 @@ class CSave extends Controller
         if (isset($_FILES['img'])){
             $image = new ImageUpload($_FILES['img']);
             $image->save();
-            $emotion = new Emotion($image->getUrl());
+            $emotion = new ProjectOxfordEmotion($image->getUrl());
             $result = $emotion->requestEmotion();
 
             if (!$result['error']) {
